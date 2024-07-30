@@ -15,7 +15,7 @@ public class BasicController {
     String hello(){
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        return "오늘 날짜44 : "+ ZonedDateTime.now().format(formatter);
+        return "오늘 날짜 : "+ ZonedDateTime.now().format(formatter);
 
     }
 
