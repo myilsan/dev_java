@@ -1,23 +1,25 @@
 package com.dev.dev;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.swagger.v3.core.util.Json;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
 import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
+
 
 
 @Controller
@@ -64,6 +66,7 @@ public class BasicController<CompanySignupRes> {
             model.addAttribute("nowDate",nowDate);
 
             ObjectMapper objectMapper = new ObjectMapper();
+
             return objectMapper.writeValueAsString(model);
 
         } catch (Exception ex) {
@@ -93,4 +96,23 @@ public class BasicController<CompanySignupRes> {
         model.addAttribute("items", Arrays.asList("Item 1", "Item 2", "Item 3", "Item 4"));
         return "start_page.html";
     }
+
+    @GetMapping("/HelloApi")
+    @ResponseBody
+    public helloClass HelloApi(@RequestParam("name") String name, @RequestParam("age") String age)
+    {
+        helloClass test = new helloClass();
+        test.setName(name);
+        test.setAge(age);
+        return test;
+
+    }
+    @Getter
+    @Setter
+    static class helloClass {
+        private String name;
+        private String age;
+
+    }
+
 }
