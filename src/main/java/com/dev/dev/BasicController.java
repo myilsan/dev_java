@@ -97,6 +97,11 @@ public class BasicController<CompanySignupRes> {
         return "start_page.html";
     }
 
+
+
+
+
+
     @GetMapping("/HelloApi")
     @ResponseBody
     public helloClass HelloApi(@RequestParam("name") String name, @RequestParam("age") String age)
