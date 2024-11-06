@@ -23,6 +23,7 @@ import java.util.Arrays;
 @Controller
 public class BasicController<CompanySignupRes> {
 
+
     @GetMapping("/apiTest")
     @ResponseBody
 
