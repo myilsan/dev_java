@@ -20,8 +20,6 @@ import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 
-
-
 @Controller
 public class BasicController<CompanySignupRes> {
 
@@ -45,6 +43,7 @@ public class BasicController<CompanySignupRes> {
             @ApiResponse(responseCode = "2002", description = "이미 가입된 계정입니다.", content = @Content(mediaType = "application/json")),
             @ApiResponse(responseCode = "4000", description = "데이터베이스 연결에 실패하였습니다.", content = @Content(mediaType = "application/json")),
             @ApiResponse(responseCode = "4011", description = "비밀번호 암호화에 실패하였습니다.", content = @Content(mediaType = "application/json"))
+
     })
     @Parameters({
             @Parameter(name = "email", description = "이메일", example = "chrome123@naver.com"),
